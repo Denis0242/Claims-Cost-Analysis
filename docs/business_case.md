@@ -1,14 +1,21 @@
-# Business Case
+# Business Case: Customer Risk Analysis Dashboard
 
-Insurance claim costs increased materially year over year, creating pressure on pricing, underwriting, and claim operations. This project gives business stakeholders a clear view of where claim costs are concentrated and which claim segments require action.
+## Business Problem
+Insurance teams need to identify customers with high claim frequency and high loss exposure before losses become concentrated across a small customer segment.
 
-## Key Business Questions
+## KPI Goals
+- Reduce unmanaged high-risk exposure.
+- Track average loss per customer.
+- Segment customers into High-risk, Medium-risk, and Low-risk groups.
+- Prioritize customers for underwriting review, pricing review, and retention intervention.
 
-1. Which claim types drive the most cost?
-2. Which regions are highest risk?
-3. How are claim costs trending over time?
-4. Where should underwriting and pricing teams focus first?
+## Current Dataset Summary
+- Cleaned claim rows: 1,000
+- Unique customers: 265
+- Claim date range: 2024-07-01 to 2025-12-31
+- Total customer loss: $3,736,031
+- Average loss per customer: $14,098
+- High-risk customer share under default thresholds: 42.64%
 
-## Executive Decision
-
-Prioritize pricing review and underwriting improvements for **Property** claims and high-cost regions such as **South**.
+## Decision
+Prioritize high-risk customers for review and intervention. Monitor medium-risk customers before they migrate into high-risk status.

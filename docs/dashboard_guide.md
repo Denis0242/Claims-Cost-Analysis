@@ -1,18 +1,28 @@
 # Dashboard Guide
 
-## Pages / Sections
+## Tableau-to-Streamlit Coverage
+The Streamlit app reproduces the dashboard logic from the uploaded Tableau screenshot.
 
-1. KPI tiles: Total Claim Cost, Avg Claim Amount, Total Claims, YoY % Change
-2. Filters: Metric Selector, Region, Claim Type, Date, Severity
-3. Heatmap: Claim distribution by Region and Claim Type
-4. Bar comparison: Claim Type cost comparison
-5. Trend chart: Cost trend over time
-6. Right panel: Insight, Action, Recommendation, Decision
+Included sections:
+- Total Customers KPI
+- Avg Loss per Customer KPI
+- Total Loss KPI
+- High Risk Customer % KPI
+- Region filter
+- Policy Type filter
+- Customer Age Band filter
+- Risk Category filter
+- Claim Date range filter
+- Claim Threshold control
+- Loss Threshold control
+- Top N Customer selector
+- Claims vs Loss Segmentation scatter plot
+- Customer Risk Segmentation donut chart
+- Claims Frequency by Age Band bar chart
+- Customer Allocation by Risk Category bar chart
+- Loss Contribution by Risk Segment bar chart
+- Customer Risk Detail Table
+- Key Insight / Action / Recommendation / Decision panel
 
-## How to Use
-
-- Start with the KPI tiles to understand overall claim exposure.
-- Filter by region or claim type to isolate risk pockets.
-- Use the heatmap to compare claim concentration.
-- Use the trend line to detect monthly cost increases.
-- Translate insights into pricing and underwriting decisions.
+## Added Improvement
+The app also includes a Data Cleaning & EDA tab, which demonstrates duplicate checks, missing-value handling, type conversions, numeric validation, feature engineering, monthly loss trends, distribution checks, region loss patterns, and correlations.

@@ -1,9 +1,13 @@
-# Tableau Dashboard
+# Tableau Dashboard Placeholder
 
-The Tableau dashboard screenshot is stored in:
+Add your Tableau packaged workbook here when ready:
 
-`screenshots/insurance_claims_cost_dashboard.png`
+```text
+dashboard/customer_risk_dashboard.twbx
+```
 
-Add the packaged Tableau workbook here when available:
+The uploaded Tableau screenshot is already included under:
 
-`dashboard/tableau_dashboard.twbx`
+```text
+screenshots/customer_risk_dashboard.png
+```

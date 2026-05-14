@@ -1,7 +1,7 @@
 [project]
 name = "claims-cost-analysis"
 version = "0.1.0"
-description = "Claims-Cost-Analysis"
+description = "claims-cost-analysis"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []

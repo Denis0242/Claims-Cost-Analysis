@@ -1,0 +1,32 @@
+# MODERN ANALYTICS PORTFOLIO ENGINEERING SYSTEM
+
+## Designed For:
+### Data Analyst (Healthcare & Tech) with Product Analytics Skills
+
+---
+
+# SYSTEM OVERVIEW
+
+The Modern Analytics Portfolio Engineering System is a structured framework designed to build:
+
+- recruiter-ready analytics repositories
+- executive-level dashboard portfolios
+- product analytics case studies
+- healthcare & tech analytics projects
+- experimentation & KPI intelligence systems
+- decision-support analytics platforms
+
+The system combines:
+
+- Portfolio Strategy
+- Analytics Storytelling
+- Product Analytics Thinking
+- Executive KPI Framing
+- Automation Workflows
+- Repository Generation Standards
+- GitHub Portfolio Architecture
+
+to create:
+
+```text
+Modern Analytics Decision Systems

@@ -1,152 +1,61 @@
-# Insurance Claims Cost Analysis
+# Customer Risk Analysis Dashboard
+
+![Dashboard Preview](screenshots/customer_risk_dashboard.png)
 
 ## Executive Summary
+This repository converts the Tableau-style **Customer Risk Analysis Dashboard** into a complete analytics portfolio project with a Streamlit app, SQL logic, EDA notebook, data cleaning documentation, KPI definitions, and dashboard-ready risk segmentation.
 
-This repository is a full analytics decision-support project built from an insurance claims dataset and Tableau dashboard screenshot. The project analyzes claim cost, claim volume, regional risk, claim-type concentration, year-over-year cost movement, and underwriting opportunities.
-
-**Dashboard headline:** total claim cost is **$3,871,652** across **1,000 claims**, with an average claim amount of **$3,872**. The highest-cost claim type is **Property**, and the highest-cost region is **South**. Year-over-year claim cost changed by approximately **94.53%**.
-
-![Insurance Claims Cost Dashboard](screenshots/insurance_claims_cost_dashboard.png)
-
----
+The Streamlit app includes every major dashboard component shown in the screenshot: KPI cards, filters, threshold controls, top-N selector, segmentation scatter plot, risk donut chart, claims by age band, allocation chart, loss contribution chart, customer detail table, and an Insight → Action → Recommendation → Decision panel.
 
 ## Business Problem
-
-Insurance leaders need to understand where claim costs are increasing, which claim types are driving financial exposure, and which regions require pricing, underwriting, or claims-management intervention. Without a clear cost intelligence workflow, teams may react late to rising loss pressure and miss opportunities to improve pricing discipline.
-
----
+Insurance teams need a clear way to identify customers with high claim frequency and high financial loss exposure so they can prioritize review, underwriting action, pricing changes, retention programs, and risk mitigation.
 
 ## KPI Goals
-
 | KPI | Purpose |
 |---|---|
-| Total Claim Cost | Measures total financial exposure |
-| Average Claim Amount | Tracks claim severity and cost per incident |
-| Total Claims | Measures claim volume |
-| YoY % Change | Identifies cost acceleration or improvement |
-| Claim Type Cost | Shows which products/policies drive losses |
-| Regional Cost Distribution | Identifies high-risk geographic segments |
-| Severity Mix | Supports underwriting and claims triage |
-
----
+| Total Customers | Measures the selected customer population |
+| Avg Loss per Customer | Tracks average financial exposure per customer |
+| Total Loss | Measures total claim loss exposure |
+| High Risk Customer % | Identifies the share of customers requiring immediate review |
+| Risk Segment Loss Contribution | Shows which risk category drives the most loss |
 
 ## Dataset
+- Rows: **1,000 cleaned claim records**
+- Unique customers: **265**
+- Claim date range: **2024-07-01 to 2025-12-31**
+- Core fields: claim ID, claim date, customer ID, region, policy type, age band, tenure, annual premium, claim status, and claim amount
 
-The dataset contains **1,000 claim records** with claim dates, year/month fields, region, claim type, severity, claim status, policy ID, customer ID, broker ID, and claim amount.
+## Data Cleaning & EDA Enhancements
+The EDA work was expanded beyond basic charts to include:
 
-**Main fields:**
+- Column name standardization
+- Duplicate claim ID checks
+- Missing-value checks
+- Date parsing validation
+- Numeric conversion for premium, tenure, and claim amount
+- Negative-value validation
+- Category normalization for region, policy type, and claim status
+- Loss ratio feature engineering
+- Claim month feature engineering
+- Customer-level aggregation
+- Risk category derivation
+- Monthly loss trend analysis
+- Claim distribution analysis by policy type
+- Regional loss analysis
+- Correlation heatmap for numeric variables
 
-```text
-claim_id, claim_date, claim_year, claim_month, region, claim_type,
-severity, claim_status, policy_id, customer_id, broker_id, claim_amount
-```
-
----
-
-## SQL Transformations
-
-SQL files are included in the `sql/` folder for:
-
-- KPI summary reporting
-- Regional cost and claim distribution
-- Claim type cost comparison
-- Severity risk analysis
-- Monthly trend analysis
-- YoY cost movement
-
----
-
-## Metrics Engineering
-
-Core calculations used in this project:
+## SQL / Data Preparation
+SQL scripts are included in `/sql`:
 
 ```text
-Total Claim Cost = SUM(claim_amount)
-Average Claim Amount = AVG(claim_amount)
-Total Claims = COUNT(DISTINCT claim_id)
-YoY % Change = (Current Year Claim Cost - Prior Year Claim Cost) / Prior Year Claim Cost
-Region Share = Region Claim Cost / Total Claim Cost
-Claim Type Share = Claim Type Claim Cost / Total Claim Cost
+sql/
+├── customer_risk_cleaning.sql
+├── dashboard_kpis.sql
+└── risk_segmentation.sql
 ```
-
----
-
-## Analytics Workflow
-
-1. Load raw claims data from CSV.
-2. Clean and validate date, region, claim type, severity, and claim amount fields.
-3. Aggregate claims by region, type, severity, and month.
-4. Build KPI logic for claim amount, average amount, total claims, and YoY change.
-5. Create Tableau dashboard for executive analysis.
-6. Convert findings into insight, action, recommendation, and decision blocks.
-7. Package the project as a recruiter-ready analytics repository.
-
----
 
 ## Dashboard Preview
-
-The dashboard includes:
-
-- KPI tiles for total cost, average claim amount, total claims, and YoY change
-- Region and claim type filters
-- Claim distribution heatmap by region and claim type
-- Claim type stacked comparison
-- Cost trend over time
-- Insight, action, recommendation, and decision panel
-
----
-
-## Product / Business Insights
-
-- **Property claims are the largest cost driver**, making this the strongest candidate for pricing review and underwriting attention.
-- **South has the highest total claim cost**, signaling a need for region-specific risk monitoring.
-- YoY claim cost increased by approximately **94.53%**, suggesting cost pressure that should be monitored monthly.
-- Severity segmentation helps identify where high-cost claims may be concentrated.
-
----
-
-## Experimentation Thinking
-
-Although this is a dashboard project, it can support experimentation-style decision making:
-
-| Experiment Idea | Business Question | Success Metric | Guardrail Metric |
-|---|---|---|---|
-| Pricing adjustment pilot | Does premium adjustment reduce loss pressure? | Lower claim cost ratio | Customer retention |
-| Claims triage pilot | Does early review reduce high-cost claims? | Lower average claim amount | Claim resolution time |
-| Underwriting rules pilot | Do tighter rules reduce severe claims? | Lower severe-claim share | Policy approval rate |
-
----
-
-## Recommendations
-
-1. Review pricing for high-cost claim types, especially **Property**.
-2. Investigate high-growth and high-cost regions, starting with **South**.
-3. Strengthen underwriting rules for high-severity and high-cost segments.
-4. Monitor monthly claim-cost trends to detect early cost spikes.
-5. Build automated KPI refresh workflows for repeatable executive reporting.
-
----
-
-## Decision Framework
-
-| Decision Area | Recommended Action |
-|---|---|
-| Pricing | Adjust premiums for high-cost policy segments |
-| Underwriting | Strengthen review rules for severe and high-cost claims |
-| Claims Operations | Prioritize early intervention for high-risk claims |
-| Executive Monitoring | Use monthly dashboards to track cost trend and YoY movement |
-
----
-
-## Business Impact
-
-This project demonstrates how insurance claim data can be transformed into an executive decision-support system. The analysis helps identify high-cost claim drivers, prioritize underwriting review, support pricing decisions, and monitor financial exposure across regions and claim types.
-
----
-
-## Streamlit App
-
-A Streamlit version of the dashboard is included in `app/streamlit_app.py`.
+The Streamlit app recreates the Tableau dashboard and adds a cleaning-focused EDA tab.
 
 Run locally:
 
@@ -155,60 +64,61 @@ pip install -r requirements.txt
 streamlit run app/streamlit_app.py
 ```
 
----
+## Key Insights
+- High-risk customers represent a material share of total customer exposure.
+- Loss is concentrated among customers with higher claim frequency and higher total loss.
+- Age band, region, and policy type filters help isolate the segments driving risk.
+- Medium-risk customers should be monitored because they can migrate into high-risk status.
+
+## Recommendations
+- Prioritize high-risk customers for underwriting review.
+- Monitor medium-risk customers with early-warning thresholds.
+- Use claim and loss thresholds to support pricing and risk-mitigation decisions.
+- Target high-loss regions and policy types for deeper investigation.
+
+## Decision
+Prioritize high-risk customers for review and intervention. Launch retention and risk-mitigation programs for medium-risk customers.
+
+## Business Impact
+This project helps demonstrate how analytics can convert claim-level data into customer-level decisions by supporting risk prioritization, executive reporting, and operational monitoring.
 
 ## Repo Architecture
-
 ```text
-insurance-claims-cost-analysis/
+customer-risk-analysis-repo/
+├── app/
+│   ├── components.py
+│   ├── streamlit_app.py
+│   └── utils.py
 ├── data/
-│   └── claims_cost.csv
-├── sql/
-│   ├── claims_analysis.sql
-│   ├── segmentation_analysis.sql
-│   ├── trend_analysis.sql
-│   └── risk_analysis.sql
-├── notebooks/
-│   ├── eda.ipynb
-│   ├── business_insights.ipynb
-│   └── kpi_analysis.ipynb
+│   └── customer_risk.csv
 ├── dashboard/
 │   └── tableau_dashboard_placeholder.md
-├── screenshots/
-│   └── insurance_claims_cost_dashboard.png
-├── app/
-│   ├── streamlit_app.py
-│   ├── components.py
-│   └── utils.py
 ├── docs/
 │   ├── business_case.md
 │   ├── dashboard_guide.md
 │   ├── kpi_definitions.md
-│   └── repo_formula_v2.txt
-├── requirements.txt
+│   └── modern_repo_formula.txt
+├── notebooks/
+│   └── eda_cleaning_customer_risk.ipynb
+├── screenshots/
+│   └── customer_risk_dashboard.png
+├── sql/
+│   ├── customer_risk_cleaning.sql
+│   ├── dashboard_kpis.sql
+│   └── risk_segmentation.sql
 ├── .gitignore
-└── README.md
+├── README.md
+└── requirements.txt
 ```
 
----
+## Tech Stack
+- Python
+- Pandas
+- NumPy
+- Plotly
+- Streamlit
+- SQL
+- Tableau dashboard screenshot
 
-## Automation Awareness
-
-Future versions can automate this workflow using:
-
-- Python scripts for data validation and KPI refresh
-- Scheduled SQL jobs for monthly aggregation
-- Streamlit Cloud for interactive deployment
-- GitHub Actions for quality checks
-- Prefect for workflow orchestration when the project becomes more advanced
-
----
-
-## Future Improvements
-
-- Add loss ratio if premium data becomes available
-- Add broker performance analysis
-- Add customer risk segmentation
-- Add anomaly detection for claim spikes
-- Add predictive claim severity model
-- Add Tableau packaged workbook when available
+## Portfolio Positioning
+This project is aligned with a **Data Analyst (Healthcare & Tech) with Product Analytics Skills** profile by showing KPI thinking, customer segmentation, risk analytics, EDA, dashboarding, and decision-support storytelling.
