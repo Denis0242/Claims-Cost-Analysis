@@ -1,97 +1,194 @@
 # Insurance Claims Cost Analysis
 
 ## Executive Summary
-This project analyzes insurance claim costs across regions, claim types, severity levels, and time periods to help leadership identify high-cost drivers, improve underwriting decisions, and prioritize pricing actions.
 
-The Tableau dashboard shows a total claim cost of **$3,871,652**, **1,000 claims**, and an average claim amount of **$3,872** across the claim portfolio.
+This project analyzes insurance claim costs across regions, claim types, severity levels, and time periods to help insurance leadership identify high-cost drivers, improve underwriting decisions, and prioritize pricing actions.
 
-## Business Problem
-Insurance claims costs can rise quickly when high-severity claims, regional concentration, and claim-type risk are not monitored together. The business needs a decision dashboard that shows where cost is increasing, which claim categories drive the largest loss exposure, and what actions should be taken to improve pricing and underwriting performance.
+The dashboard provides a centralized view of:
 
-## KPI Goals
-- Total Claim Cost
-- Average Claim Amount
-- Total Claims
-- Year-over-Year Cost Change
-- Claim Cost by Region
-- Claim Cost by Claim Type
-- Claim Cost by Severity
-- Monthly Cost Trend
-- High-Cost Claim Share
+* **Total Claim Cost:** **$3,871,652**
+* **Average Claim Amount:** **$3,872**
+* **Total Claims:** **1,000**
+* **YoY Cost Change:** **94.53% Increase**
 
-## Dataset Overview
-- Rows: **1,000**
-- Columns: **16**
-- Date range: **2024-01-01 to 2025-12-31**
-- Key fields: claim date, region, claim type, severity, status, policy ID, customer ID, broker ID, claim amount
-- Source type: synthetic insurance claims dataset for portfolio analytics practice
+The analysis highlights how **property claims**, **regional concentration**, and **severity patterns** influence insurance claim exposure and business risk.
 
-## Data Cleaning & EDA
-The EDA workflow includes:
-- Standardized column names
-- Converted claim dates into datetime format
-- Validated numeric claim amount fields
-- Checked missing values and duplicate records
-- Reviewed categorical columns such as region, claim type, severity, and claim status
-- Created month, quarter, cost band, and high-cost flag features
-- Validated KPI totals against dashboard-level metrics
-- Exported a cleaned dataset for SQL, Tableau, and Streamlit use
+---
 
-## SQL Transformations
-SQL scripts include:
-- KPI summary query
-- Monthly trend query
-- Region and claim type segmentation
-- Severity analysis
-- High-cost claim analysis
-- Broker and customer claim exposure
-- Executive decision tables
+# Business Problem
 
-## Metrics Engineering
+Insurance organizations face increasing claim costs driven by claim severity, regional concentration, and high-risk claim categories. Without centralized reporting, leadership may struggle to quickly identify:
+
+* Which claim types create the largest financial exposure
+* Which regions drive claim growth
+* How severity impacts overall claim costs
+* Where underwriting and pricing decisions should be adjusted
+
+This project was designed to provide an **executive decision-support dashboard** that transforms raw claims data into actionable business insights for pricing, underwriting, and operational reporting.
+
+---
+
+# Business Questions
+
+This dashboard answers key insurance business questions:
+
+1. Which claim types generate the highest total cost?
+2. Which regions contribute most to insurance losses?
+3. How are claim costs changing over time?
+4. Which severity levels dominate claim volume?
+5. Where should pricing and underwriting interventions be prioritized?
+
+---
+
+# KPI Goals
+
+The dashboard tracks:
+
+* Total Claim Cost
+* Average Claim Amount
+* Total Claims
+* Year-over-Year (YoY) Cost Change
+* Claim Cost by Region
+* Claim Cost by Claim Type
+* Severity Distribution
+* Monthly Cost Trend
+* High-Cost Claim Exposure
+
+---
+
+# Dataset Overview
+
+| Metric | Details |
+|--------|---------|
+| Dataset Size | 1,000 Rows |
+| Columns | 16 |
+| Date Range | 2024-01-01 → 2025-12-31 |
+| Industry | Insurance |
+| Dataset Type | Synthetic Insurance Claims Dataset |
+| Use Case | Cost Monitoring, Risk Segmentation, Executive Reporting |
+
+### Key Fields
+
+* Claim ID
+* Claim Date
+* Region
+* Claim Type
+* Severity
+* Claim Amount
+* Policy ID
+* Customer ID
+* Broker ID
+* Claim Status
+
+---
+
+# Project Folder Structure
+
 ```text
-Total Claim Cost = SUM(claim_amount)
-Average Claim Amount = AVG(claim_amount)
-Total Claims = COUNT(DISTINCT claim_id)
-High-Cost Claim Flag = claim_amount >= 75th percentile
-YoY % Change = (Current Year Cost - Prior Year Cost) / Prior Year Cost
+Claims-Cost-Risk-Analytics/
+│── README.md
+│── requirements.txt
+│── streamlit_app.py
+│
+│── data/
+│   ├── raw/
+│   └── cleaned/
+│
+│── notebooks/
+│   └── insurance_claims_eda.ipynb
+│
+│── screenshots/
+│   ├── kpi_summary.png
+│   ├── dashboard_overview.png
+│   ├── claim_distribution.png
+│   ├── claim_type_comparison.png
+│   └── cost_trend.png
+│
+│── sql/
+│   └── insurance_claim_queries.sql
 ```
 
-## Tableau Dashboard Preview
-![Insurance Claims Cost Dashboard](screenshots/insurance_claims_cost_dashboard.png)
+---
 
-The dashboard presents claim cost distribution by region and claim type, claim type comparison, monthly cost trend, and executive decision notes.
+# EDA & Data Cleaning
 
-## Streamlit Dashboard Recreation
-The Streamlit app recreates the Tableau dashboard using Python and Plotly. It includes filters, KPI cards, regional distribution, claim type comparison, monthly cost trend, severity analysis, high-cost claim detection, and an executive decision section.
+The exploratory data analysis (EDA) and cleaning process is documented in:
 
-Run locally:
-```bash
-pip install -r requirements.txt
-streamlit run app/streamlit_app.py
+```text
+notebooks/insurance_claims_eda.ipynb
 ```
 
-## Product Insights
-Property claims represent the largest cost driver and should receive deeper pricing and underwriting review. Regional concentration also matters because high-cost regions create portfolio-level loss exposure. Medium-to-high severity claims dominate claim volume and require stronger monitoring.
+### Data Cleaning Workflow
 
-## Insight, Action, Recommendation, Decision
-### Insight
-Property claims and high-growth regions drive the majority of claim cost exposure, increasing pricing and underwriting risk.
+#### Data Validation
 
-### Action
-Monitor property claims, high-severity claims, and regional cost trends monthly to detect early cost escalation.
+* Checked dataset structure and column consistency
+* Reviewed data types for numeric and categorical fields
+* Converted claim dates into datetime format
 
-### Recommendation
-Adjust premiums in high-risk regions, improve underwriting rules for property policies, and investigate brokers or customer groups with repeated high-cost claims.
+#### Data Quality Checks
 
-### Decision
-Prioritize pricing review and underwriting model strengthening for property policies and high-cost regions to reduce rising claim costs.
+* Checked missing values
+* Removed duplicate records
+* Validated claim amount ranges
+* Standardized categorical values
 
-## Business Impact
-This project helps insurance leaders reduce loss exposure, identify cost concentration, improve pricing decisions, and create a repeatable analytics workflow across Tableau, SQL, Python, and Streamlit.
+#### Feature Engineering
 
-## Future Improvements
-- Add predictive claim severity modeling
-- Add automated refresh pipeline with scheduled SQL or Python
-- Add fraud-risk scoring
-- Add policy-level profitability analysis
-- Deploy Streamlit app publicly
+Created additional analytical fields:
+
+* Month
+* Quarter
+* Year
+* High-Cost Claim Flag
+* Cost Band Categories
+* Claim Severity Segments
+
+#### EDA Analysis
+
+* Claim distribution by region
+* Claim cost by claim type
+* Severity analysis
+* Monthly cost trends
+* Outlier detection
+* Cost concentration analysis
+
+---
+
+# Executive KPI Summary
+
+![KPI Summary](screenshots/kpi_summary.png)
+
+---
+
+# Dashboard Overview
+
+![Dashboard Overview](screenshots/dashboard_overview.png)
+
+---
+
+# Key Dashboard Visuals
+
+## Claim Distribution by Region & Claim Type
+
+![Claim Distribution](screenshots/claim_distribution.png)
+
+## Claim Type Comparison
+
+![Claim Type Comparison](screenshots/claim_type_comparison.png)
+
+## Cost Trend Over Time
+
+![Cost Trend](screenshots/cost_trend.png)
+
+---
+
+# Business Impact
+
+This project demonstrates how insurance organizations can use analytics to improve pricing decisions, strengthen underwriting strategies, monitor claim cost growth, reduce loss exposure, and support data-driven insurance operations.
+
+---
+
+### Tools Used
+
+**SQL • Tableau • Python • Pandas • Streamlit • Excel • Power Query**
