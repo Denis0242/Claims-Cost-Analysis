@@ -30,6 +30,7 @@ This project was designed to provide an **executive decision-support dashboard**
 # Decision Support Use Case
 
 This dashboard helps insurance leadership monitor claim cost trends, identify high-risk claim categories, evaluate severity patterns, and support data-driven decisions related to risk management, pricing strategy, claims operations, and financial performance.
+
 ---
 
 # Business Questions
