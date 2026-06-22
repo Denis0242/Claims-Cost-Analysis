@@ -22,30 +22,36 @@ Insurance organizations face increasing claim costs driven by claim severity, re
 * Which claim types create the largest financial exposure
 * Which regions drive claim growth
 * How severity impacts overall claim costs
-* Where underwriting and pricing decisions should be adjusted
+* Where pricing and underwriting decisions should be adjusted
+* Which loss drivers require immediate management attention
 
-This project was designed to provide an **executive decision-support dashboard** that transforms raw claims data into actionable business insights for pricing, underwriting, and operational reporting.
+This project was designed to provide an executive-level decision-support dashboard that transforms raw claims data into actionable business insights for pricing, underwriting, risk management, and operational reporting.
 
 ---
+
 # Decision Support Use Case
 
-This dashboard helps insurance leadership monitor claim cost trends, identify high-risk claim categories, evaluate severity patterns, and support data-driven decisions related to risk management, pricing strategy, claims operations, and financial performance.
+This dashboard supports insurance leadership, underwriting teams, risk managers, and claims operations teams by helping them:
+
+* Monitor claim cost performance
+* Identify high-risk claim categories
+* Evaluate severity trends
+* Detect regional loss concentration
+* Prioritize underwriting interventions
+* Support pricing strategy decisions
+* Improve financial risk management
+
+### Example Decisions Supported
+
+* Should underwriting guidelines be adjusted for high-cost claim categories?
+* Which regions require closer risk monitoring?
+* Where should pricing reviews be prioritized?
+* Which severity segments create the largest financial exposure?
+* How should claims operations allocate risk management resources?
 
 ---
 
-# Business Questions
-
-This dashboard answers key insurance business questions:
-
-1. Which claim types generate the highest total cost?
-2. Which regions contribute most to insurance losses?
-3. How are claim costs changing over time?
-4. Which severity levels dominate claim volume?
-5. Where should pricing and underwriting interventions be prioritized?
-
----
-
-# KPI Goals
+# KPIs
 
 The dashboard tracks:
 
@@ -61,33 +67,98 @@ The dashboard tracks:
 
 ---
 
-# Dataset Overview
+# Dashboard Overview
 
-| Metric | Details |
-|--------|---------|
-| Dataset Size | 1,000 Rows |
-| Columns | 16 |
-| Date Range | 2024-01-01 → 2025-12-31 |
-| Industry | Insurance |
-| Dataset Type | Synthetic Insurance Claims Dataset |
-| Use Case | Cost Monitoring, Risk Segmentation, Executive Reporting |
+The dashboard provides a comprehensive view of insurance claim performance through:
 
-### Key Fields
+* Executive KPI scorecards
+* Regional claim cost analysis
+* Claim type performance monitoring
+* Severity distribution analysis
+* Monthly cost trend reporting
+* High-cost claim exposure tracking
 
-* Claim ID
-* Claim Date
-* Region
-* Claim Type
-* Severity
-* Claim Amount
-* Policy ID
-* Customer ID
-* Broker ID
-* Claim Status
+The objective is to provide insurance leaders with a centralized reporting solution for monitoring financial risk and supporting data-driven decision-making.
 
 ---
 
-# Project Folder Structure
+# Dashboard Screenshots
+
+## Dashboard Overview
+
+![Dashboard Overview](screenshots/dashboard_overview.png)
+
+## Executive KPI Summary
+
+![KPI Summary](screenshots/kpi_summary.png)
+
+## Claim Distribution by Region & Claim Type
+
+![Claim Distribution](screenshots/claim_distribution.png)
+
+## Claim Type Comparison
+
+![Claim Type Comparison](screenshots/claim_type_comparison.png)
+
+## Cost Trend Over Time
+
+![Cost Trend](screenshots/cost_trend.png)
+
+---
+
+# Key Insights
+
+Property claims and high-severity incidents account for the largest share of claim costs, representing the primary drivers of insurance loss exposure.
+
+---
+
+# Executive Decision Summary
+
+## Insight
+
+Property claims and high-severity incidents are the primary drivers of insurance loss exposure.
+
+## Action
+
+Increase monitoring of high-cost claim categories and regions with elevated loss activity.
+
+## Recommendation
+
+Review pricing models, underwriting criteria, and risk controls for the highest-cost segments.
+
+## Decision
+
+Prioritize risk management resources toward regions and claim categories generating the greatest financial impact.
+
+---
+
+# Business Impact
+
+This project demonstrates how insurance organizations can use analytics to:
+
+* Improve pricing decisions
+* Strengthen underwriting strategies
+* Monitor claim cost growth
+* Reduce loss exposure
+* Improve executive reporting
+* Enhance financial risk visibility
+* Support data-driven insurance operations
+
+---
+
+# Recommendations
+
+Prioritize pricing reviews, underwriting controls, and risk monitoring efforts for high-cost claim categories and high-severity segments to reduce future loss exposure.
+
+---
+
+# Tools Used
+
+**SQL • Tableau • Python • Pandas • Streamlit • Excel • Power Query**
+
+---
+
+# Repository Structure
 
 ```text
 Claims-Cost-Risk-Analytics/
@@ -112,6 +183,49 @@ Claims-Cost-Risk-Analytics/
 │── sql/
 │   └── insurance_claim_queries.sql
 ```
+
+---
+
+# Data Dictionary
+
+| Column       | Description                   |
+| ------------ | ----------------------------- |
+| claim_id     | Unique claim identifier       |
+| claim_date   | Date claim was filed          |
+| region       | Geographic claim region       |
+| claim_type   | Insurance claim category      |
+| severity     | Claim severity classification |
+| claim_amount | Monetary value of the claim   |
+| policy_id    | Policy identifier             |
+| customer_id  | Customer identifier           |
+| broker_id    | Broker identifier             |
+| claim_status | Current claim status          |
+
+---
+
+# Dataset Overview
+
+| Metric       | Details                                                 |
+| ------------ | ------------------------------------------------------- |
+| Dataset Size | 1,000 Rows                                              |
+| Columns      | 16                                                      |
+| Date Range   | 2024-01-01 → 2025-12-31                                 |
+| Industry     | Insurance                                               |
+| Dataset Type | Synthetic Insurance Claims Dataset                      |
+| Use Case     | Cost Monitoring, Risk Segmentation, Executive Reporting |
+
+### Key Fields
+
+* Claim ID
+* Claim Date
+* Region
+* Claim Type
+* Severity
+* Claim Amount
+* Policy ID
+* Customer ID
+* Broker ID
+* Claim Status
 
 ---
 
@@ -160,40 +274,32 @@ Created additional analytical fields:
 
 ---
 
-# Executive KPI Summary
+# How to Run the Project
 
-![KPI Summary](screenshots/kpi_summary.png)
+## Clone Repository
 
----
+```bash
+git clone https://github.com/yourusername/Claims-Cost-Risk-Analytics.git
+```
 
-# Dashboard Overview
+## Install Dependencies
 
-![Dashboard Overview](screenshots/dashboard_overview.png)
+```bash
+pip install -r requirements.txt
+```
 
----
+## Run Streamlit Application
 
-# Key Dashboard Visuals
-
-## Claim Distribution by Region & Claim Type
-
-![Claim Distribution](screenshots/claim_distribution.png)
-
-## Claim Type Comparison
-
-![Claim Type Comparison](screenshots/claim_type_comparison.png)
-
-## Cost Trend Over Time
-
-![Cost Trend](screenshots/cost_trend.png)
+```bash
+streamlit run streamlit_app.py
+```
 
 ---
 
-# Business Impact
+# Disclaimer
 
-This project demonstrates how insurance organizations can use analytics to improve pricing decisions, strengthen underwriting strategies, monitor claim cost growth, reduce loss exposure, and support data-driven insurance operations.
+This project uses a synthetic insurance claims dataset created for portfolio and educational purposes.
 
----
+No real customer, policyholder, broker, or insurance company information is included.
 
-### Tools Used
-
-**SQL • Tableau • Python • Pandas • Streamlit • Excel • Power Query**
+The dashboard is intended solely to demonstrate analytics, reporting, business intelligence, and decision-support capabilities.
