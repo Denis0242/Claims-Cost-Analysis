@@ -4,28 +4,40 @@
 
 This project analyzes insurance claim costs across regions, claim types, severity levels, and time periods to help insurance leadership identify high-cost drivers, improve underwriting decisions, and prioritize pricing actions.
 
-The dashboard provides a centralized view of:
+The dashboard provides a centralized view of insurance claim performance through financial, operational, and risk-focused KPIs.
 
-* **Total Claim Cost:** **$3,871,652**
-* **Average Claim Amount:** **$3,872**
-* **Total Claims:** **1,000**
-* **YoY Cost Change:** **94.53% Increase**
+Key results include:
 
-The analysis highlights how **property claims**, **regional concentration**, and **severity patterns** influence insurance claim exposure and business risk.
+* Total Claim Cost: $3,871,652
+* Average Claim Amount: $3,872
+* Total Claims: 1,000
+* Year-over-Year Cost Change: 94.53% Increase
+
+The analysis highlights how claim severity, regional concentration, and claim type distribution influence insurance loss exposure and financial risk.
+
+Built using SQL, Tableau, Python, Streamlit, Excel, and Power Query.
 
 ---
 
 # Business Problem
 
-Insurance organizations face increasing claim costs driven by claim severity, regional concentration, and high-risk claim categories. Without centralized reporting, leadership may struggle to quickly identify:
+Insurance organizations face increasing claim costs driven by:
 
-* Which claim types create the largest financial exposure
-* Which regions drive claim growth
-* How severity impacts overall claim costs
-* Where pricing and underwriting decisions should be adjusted
-* Which loss drivers require immediate management attention
+* High-severity claims
+* Regional loss concentration
+* Rising claim frequency
+* High-cost claim categories
+* Inefficient pricing and underwriting decisions
 
-This project was designed to provide an executive-level decision-support dashboard that transforms raw claims data into actionable business insights for pricing, underwriting, risk management, and operational reporting.
+Without centralized reporting, leadership teams may struggle to identify:
+
+* High-risk claim categories
+* Cost concentration trends
+* Regional loss exposure
+* Underwriting improvement opportunities
+* Pricing strategy adjustments
+
+This project provides an executive-level decision-support solution that transforms insurance claims data into actionable business insights.
 
 ---
 
@@ -41,29 +53,31 @@ This dashboard supports insurance leadership, underwriting teams, risk managers,
 * Support pricing strategy decisions
 * Improve financial risk management
 
-### Example Decisions Supported
+The dashboard answers key business questions such as:
 
-* Should underwriting guidelines be adjusted for high-cost claim categories?
-* Which regions require closer risk monitoring?
+* Which claim types create the largest financial exposure?
+* Which regions require closer monitoring?
+* Which severity levels contribute most to losses?
 * Where should pricing reviews be prioritized?
-* Which severity segments create the largest financial exposure?
-* How should claims operations allocate risk management resources?
+* How should risk management resources be allocated?
 
 ---
 
 # KPIs
 
-The dashboard tracks:
+The dashboard monitors:
 
-* Total Claim Cost
-* Average Claim Amount
-* Total Claims
-* Year-over-Year (YoY) Cost Change
-* Claim Cost by Region
-* Claim Cost by Claim Type
-* Severity Distribution
-* Monthly Cost Trend
-* High-Cost Claim Exposure
+| KPI                      | Business Purpose                    |
+| ------------------------ | ----------------------------------- |
+| Total Claim Cost         | Measures overall financial exposure |
+| Average Claim Amount     | Measures average claim severity     |
+| Total Claims             | Measures claim volume               |
+| YoY Cost Change          | Measures cost growth trends         |
+| Claim Cost by Region     | Identifies regional exposure        |
+| Claim Cost by Claim Type | Identifies category exposure        |
+| Severity Distribution    | Measures risk concentration         |
+| Monthly Cost Trend       | Tracks claim cost performance       |
+| High-Cost Claim Exposure | Identifies major financial risk     |
 
 ---
 
@@ -71,12 +85,12 @@ The dashboard tracks:
 
 The dashboard provides a comprehensive view of insurance claim performance through:
 
-* Executive KPI scorecards
-* Regional claim cost analysis
-* Claim type performance monitoring
-* Severity distribution analysis
-* Monthly cost trend reporting
-* High-cost claim exposure tracking
+* Executive KPI Monitoring
+* Regional Claim Cost Analysis
+* Claim Type Performance Evaluation
+* Severity Distribution Monitoring
+* Monthly Cost Trend Reporting
+* High-Cost Claim Exposure Tracking
 
 The objective is to provide insurance leaders with a centralized reporting solution for monitoring financial risk and supporting data-driven decision-making.
 
@@ -106,29 +120,9 @@ The objective is to provide insurance leaders with a centralized reporting solut
 
 ---
 
-# Key Insights
+# Key Insight
 
-Property claims and high-severity incidents account for the largest share of claim costs, representing the primary drivers of insurance loss exposure.
-
----
-
-# Executive Decision Summary
-
-## Insight
-
-Property claims and high-severity incidents are the primary drivers of insurance loss exposure.
-
-## Action
-
-Increase monitoring of high-cost claim categories and regions with elevated loss activity.
-
-## Recommendation
-
-Review pricing models, underwriting criteria, and risk controls for the highest-cost segments.
-
-## Decision
-
-Prioritize risk management resources toward regions and claim categories generating the greatest financial impact.
+Property claims and high-severity incidents account for the largest share of claim costs, making them the primary drivers of insurance loss exposure and financial risk.
 
 ---
 
@@ -144,45 +138,13 @@ This project demonstrates how insurance organizations can use analytics to:
 * Enhance financial risk visibility
 * Support data-driven insurance operations
 
----
-
-# Recommendations
-
-Prioritize pricing reviews, underwriting controls, and risk monitoring efforts for high-cost claim categories and high-severity segments to reduce future loss exposure.
+The dashboard provides leadership teams with actionable visibility into claim performance and loss concentration.
 
 ---
 
-# Tools Used
+# Recommendation
 
-**SQL • Tableau • Python • Pandas • Streamlit • Excel • Power Query**
-
----
-
-# Repository Structure
-
-```text
-Claims-Cost-Risk-Analytics/
-│── README.md
-│── requirements.txt
-│── streamlit_app.py
-│
-│── data/
-│   ├── raw/
-│   └── cleaned/
-│
-│── notebooks/
-│   └── insurance_claims_eda.ipynb
-│
-│── screenshots/
-│   ├── kpi_summary.png
-│   ├── dashboard_overview.png
-│   ├── claim_distribution.png
-│   ├── claim_type_comparison.png
-│   └── cost_trend.png
-│
-│── sql/
-│   └── insurance_claim_queries.sql
-```
+Prioritize pricing reviews, underwriting controls, and risk monitoring efforts for high-cost claim categories and high-severity segments to reduce future loss exposure and improve financial performance.
 
 ---
 
@@ -203,58 +165,44 @@ Claims-Cost-Risk-Analytics/
 
 ---
 
-# Dataset Overview
+# SQL Queries
 
-| Metric       | Details                                                 |
-| ------------ | ------------------------------------------------------- |
-| Dataset Size | 1,000 Rows                                              |
-| Columns      | 16                                                      |
-| Date Range   | 2024-01-01 → 2025-12-31                                 |
-| Industry     | Insurance                                               |
-| Dataset Type | Synthetic Insurance Claims Dataset                      |
-| Use Case     | Cost Monitoring, Risk Segmentation, Executive Reporting |
+The repository includes SQL queries supporting:
 
-### Key Fields
+* KPI Analysis
+* Regional Claim Cost Analysis
+* Severity Evaluation
+* Claim Type Performance Analysis
+* High-Cost Claim Identification
 
-* Claim ID
-* Claim Date
-* Region
-* Claim Type
-* Severity
-* Claim Amount
-* Policy ID
-* Customer ID
-* Broker ID
-* Claim Status
+SQL File:
+
+```text id="4ld8vv"
+sql/insurance_claim_queries.sql
+```
 
 ---
 
-# EDA & Data Cleaning
+# EDA + Feature Engineering
 
-The exploratory data analysis (EDA) and cleaning process is documented in:
+The exploratory data analysis and feature engineering process includes:
 
-```text
-notebooks/insurance_claims_eda.ipynb
-```
+### Data Validation
 
-### Data Cleaning Workflow
+* Dataset structure review
+* Data type validation
+* Date formatting validation
 
-#### Data Validation
+### Data Quality Checks
 
-* Checked dataset structure and column consistency
-* Reviewed data types for numeric and categorical fields
-* Converted claim dates into datetime format
+* Missing value assessment
+* Duplicate record validation
+* Claim amount range validation
+* Categorical value standardization
 
-#### Data Quality Checks
+### Feature Engineering
 
-* Checked missing values
-* Removed duplicate records
-* Validated claim amount ranges
-* Standardized categorical values
-
-#### Feature Engineering
-
-Created additional analytical fields:
+Created analytical fields including:
 
 * Month
 * Quarter
@@ -263,14 +211,100 @@ Created additional analytical fields:
 * Cost Band Categories
 * Claim Severity Segments
 
-#### EDA Analysis
+### Exploratory Analysis
 
 * Claim distribution by region
 * Claim cost by claim type
 * Severity analysis
-* Monthly cost trends
-* Outlier detection
+* Monthly trend analysis
+* Outlier identification
 * Cost concentration analysis
+
+---
+
+# Analytics Workflow
+
+```text id="k30s3l"
+Business Problem
+        ↓
+EDA + Cleaning
+        ↓
+Feature Engineering
+        ↓
+SQL Transformations
+        ↓
+Risk Analysis
+        ↓
+Dashboard Development
+        ↓
+Business Insights
+        ↓
+Decision Support
+        ↓
+Business Impact
+```
+
+---
+
+# Executive Decision Summary
+
+### Insight
+
+Property claims and high-severity incidents are the primary drivers of insurance loss exposure and claim cost growth.
+
+### Action
+
+Increase monitoring of high-cost claim categories and regions with elevated loss activity.
+
+### Recommendation
+
+Review pricing models, underwriting criteria, and risk controls for the highest-cost claim segments.
+
+### Decision
+
+Prioritize risk management resources toward regions and claim categories generating the greatest financial impact.
+
+---
+
+# Tools Used
+
+* SQL
+* Tableau
+* Python
+* Pandas
+* Streamlit
+* Excel
+* Power Query
+* GitHub
+
+---
+
+# Repository Structure
+
+```text id="t6w4kh"
+Claims-Cost-Risk-Analytics/
+
+├── README.md
+├── requirements.txt
+├── streamlit_app.py
+
+├── data/
+│   ├── raw/
+│   └── cleaned/
+
+├── notebooks/
+│   └── insurance_claims_eda.ipynb
+
+├── screenshots/
+│   ├── dashboard_overview.png
+│   ├── kpi_summary.png
+│   ├── claim_distribution.png
+│   ├── claim_type_comparison.png
+│   └── cost_trend.png
+
+├── sql/
+│   └── insurance_claim_queries.sql
+```
 
 ---
 
@@ -278,19 +312,19 @@ Created additional analytical fields:
 
 ## Clone Repository
 
-```bash
+```bash id="mjtdv6"
 git clone https://github.com/yourusername/Claims-Cost-Risk-Analytics.git
 ```
 
 ## Install Dependencies
 
-```bash
+```bash id="yhfrru"
 pip install -r requirements.txt
 ```
 
-## Run Streamlit Application
+## Launch Streamlit App
 
-```bash
+```bash id="07a1m9"
 streamlit run streamlit_app.py
 ```
 
@@ -298,8 +332,7 @@ streamlit run streamlit_app.py
 
 # Disclaimer
 
-This project uses a synthetic insurance claims dataset created for portfolio and educational purposes.
-
-No real customer, policyholder, broker, or insurance company information is included.
-
-The dashboard is intended solely to demonstrate analytics, reporting, business intelligence, and decision-support capabilities.
+* Dataset is synthetic and created for portfolio purposes.
+* No real customer, broker, policyholder, or insurance company information is included.
+* Project developed for educational and demonstration purposes.
+* Business impact examples are illustrative and intended to demonstrate analytical decision-making.
